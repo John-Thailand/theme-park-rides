@@ -21,3 +21,12 @@ tasks.register<Copy>("generateDescriptions") {
   // ファイルに記載された変数を文字列に置換している
   filter<ReplaceTokens>("tokens" to mapOf("THEME_PARK_NAME" to "Grelephant's Wonder World"))
 }
+
+tasks.register<Zip>("zipDescriptions") {
+  // build/descriptions/をZipに含める
+  from(layout.buildDirectory.dir("descriptions"))
+  // build/をZipファイルの出力先にする
+  destinationDirectory.set(layout.buildDirectory)
+  // 作成されるZipファイル名
+  archiveFileName.set("descriptions.zip")
+}
