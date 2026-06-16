@@ -12,6 +12,8 @@ plugins {
 // Taskを登録している
 // タスク名はgenerateDescriptions
 tasks.register<Copy>("generateDescriptions") {
+  group = "Theme park"
+  description = "Generates ride descriptions including token substitution"
   // コピー元
   from("descriptions")
   // コピー先
