@@ -59,5 +59,11 @@ tasks.register("sayBye") {
     println("Bye!")
   }
 
-  enabled = false
+  // タスクを実行してもスキップするようにする
+  // enabled = false
+
+  // 条件に合致すれば処理を実行する
+  onlyIf {
+    2 == 3 * 2
+  }
 }
