@@ -16,6 +16,7 @@ version = "1.0-SNAPSHOT"
 
 // Taskを登録している
 // タスク名はgenerateDescriptions
+// Copyクラスという設計図からgenerateDescriptionsという実体を作る
 tasks.register<Copy>("generateDescriptions") {
   group = "Theme park"
   description = "Generates ride descriptions including token substitution"
@@ -36,4 +37,10 @@ tasks.register<Zip>("zipDescriptions") {
   destinationDirectory.set(layout.buildDirectory)
   // 作成されるZipファイル名
   archiveFileName.set("descriptions.zip")
+}
+
+tasks.register("sayHello") {
+  doLast {
+    println("Hello")
+  }
 }
