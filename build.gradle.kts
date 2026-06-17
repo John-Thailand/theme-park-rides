@@ -79,3 +79,20 @@ tasks.register("sayBye") {
 tasks.register<Delete>("deleteme") {
   delete("deleteme")
 }
+
+tasks.register("taskB") {
+  doLast {
+    println(name)
+  }
+}
+
+tasks.register("taskA") {
+  doLast {
+    println(name)
+  }
+  mustRunAfter(tasks.named("taskB"))
+}
+
+tasks.register("taskC") {
+  dependsOn(tasks.named("taskA"), tasks.named("taskB"))
+}
