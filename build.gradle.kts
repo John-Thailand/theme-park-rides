@@ -51,6 +51,8 @@ tasks.register<Zip>("zipDescriptions") {
   archiveFileName.set("descriptions.zip")
   // zipDescriptionsを実行するには、まずgenerateDescriptionsを実行する必要があることをGradleが自動的に認識させる
   dependsOn(generateDescriptions)
+  // try catch finallyのfinallyと同様
+  finalizedBy(tasks.named("confirmFinished"))
 }
 
 tasks.register("sayHello") {
@@ -72,6 +74,12 @@ tasks.register("sayBye") {
   // 条件に合致すれば処理を実行する
   onlyIf {
     2 == 3 * 2
+  }
+}
+
+tasks.register("confirmFinished") {
+  doLast {
+    println("Finito!")
   }
 }
 
