@@ -40,6 +40,8 @@ tasks.register<Zip>("zipDescriptions") {
 }
 
 tasks.register("sayHello") {
+  group = "Theme park"
+  description = "Say hello"
   doLast {
     println("Hello")
   }
