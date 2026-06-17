@@ -67,3 +67,8 @@ tasks.register("sayBye") {
     2 == 3 * 2
   }
 }
+
+// プロジェクト直下のdeletemeというフォルダまたはファイルを削除する
+tasks.register<Delete>("deleteme") {
+  delete("deleteme")
+}
