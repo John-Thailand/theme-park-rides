@@ -58,4 +58,6 @@ tasks.register("sayBye") {
   doLast {
     println("Bye!")
   }
+
+  enabled = false
 }
