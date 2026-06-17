@@ -37,6 +37,11 @@ tasks.register<Copy>("generateDescriptions") {
   }
 }
 
+// すでに登録済みのgenerateDescriptionsタスクを後から探して設定を変更している
+tasks.named<Copy>("generateDescriptions") {
+  into(layout.buildDirectory.dir("descriptions-renamed"))
+}
+
 tasks.register<Zip>("zipDescriptions") {
   // build/descriptions/をZipに含める
   from(layout.buildDirectory.dir("descriptions"))
