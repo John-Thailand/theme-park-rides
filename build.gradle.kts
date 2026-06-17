@@ -53,3 +53,9 @@ tasks.register("sayHello") {
     println("Hello")
   }
 }
+
+tasks.register("sayBye") {
+  doLast {
+    println("Bye!")
+  }
+}
