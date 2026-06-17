@@ -9,6 +9,11 @@ plugins {
   base
 }
 
+// プロジェクトのプロパティを設定
+description = "Theme park build automation"
+group = "com.grelephant"
+version = "1.0-SNAPSHOT"
+
 // Taskを登録している
 // タスク名はgenerateDescriptions
 tasks.register<Copy>("generateDescriptions") {
