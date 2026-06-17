@@ -17,7 +17,7 @@ version = "1.0-SNAPSHOT"
 // Taskを登録している
 // タスク名はgenerateDescriptions
 // Copyクラスという設計図からgenerateDescriptionsという実体を作る
-tasks.register<Copy>("generateDescriptions") {
+val generateDescriptions = tasks.register<Copy>("generateDescriptions") {
   group = "Theme park"
   description = "Generates ride descriptions including token substitution"
   // コピー元
@@ -50,7 +50,7 @@ tasks.register<Zip>("zipDescriptions") {
   // 作成されるZipファイル名
   archiveFileName.set("descriptions.zip")
   // zipDescriptionsを実行するには、まずgenerateDescriptionsを実行する必要があることをGradleが自動的に認識させる
-  dependsOn(tasks.named("generateDescriptions"))
+  dependsOn(generateDescriptions)
 }
 
 tasks.register("sayHello") {
