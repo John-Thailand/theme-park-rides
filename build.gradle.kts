@@ -44,13 +44,13 @@ val generateDescriptions = tasks.register<Copy>("generateDescriptions") {
 
 tasks.register<Zip>("zipDescriptions") {
   // build/descriptions/をZipに含める
-  from(layout.buildDirectory.dir("descriptions"))
+  from(generateDescriptions)
   // build/をZipファイルの出力先にする
   destinationDirectory.set(layout.buildDirectory)
   // 作成されるZipファイル名
   archiveFileName.set("descriptions.zip")
   // zipDescriptionsを実行するには、まずgenerateDescriptionsを実行する必要があることをGradleが自動的に認識させる
-  dependsOn(generateDescriptions)
+  // dependsOn(generateDescriptions)
   // try catch finallyのfinallyと同様
   finalizedBy(tasks.named("confirmFinished"))
 }
