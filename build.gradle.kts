@@ -7,6 +7,7 @@ import org.apache.tools.ant.filters.ReplaceTokens
 // gradle cleanでbuildフォルダを削除する
 plugins {
   base
+  id("org.barfuin.gradle.taskinfo") version "2.1.0"
 }
 
 // プロジェクトのプロパティを設定
