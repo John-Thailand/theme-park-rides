@@ -6,8 +6,26 @@ import org.apache.tools.ant.filters.ReplaceTokens
 // clean、assemble、buildなどの基本的なタスクを追加する
 // gradle cleanでbuildフォルダを削除する
 plugins {
+  java
   base
   id("org.barfuin.gradle.taskinfo") version "2.1.0"
+}
+
+// repositories 「依存ライブラリを探しに行く場所」をGradleに教える設定
+repositories {
+  mavenCentral()
+  google()
+  maven {
+    url = uri("https://my-custom-repo.com")
+  }
+}
+
+// 必要な依存ライブラリを指定する
+// そのライブラリをインストールする際に同時にインストールされるもので不要なライブラリは除外する
+dependencies {
+  implementation("commons-beanutils:commons-beanutils:1.9.4") {
+    exclude(group = "commons-collections", module = "commons-collections")
+  }
 }
 
 // プロジェクトのプロパティを設定
